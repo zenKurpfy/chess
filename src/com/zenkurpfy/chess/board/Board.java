@@ -3,13 +3,13 @@ package com.zenkurpfy.chess.board;
 public class Board {
 
     private int rows;
-    private int colums;
+    private int columns;
     private Piece[][] pieces;
 
-    public Board(int rows, int colums) {
+    public Board(int rows, int columns) {
         this.rows = rows;
-        this.colums = colums;
-        this.pieces = new Piece[rows][colums];
+        this.columns = columns;
+        this.pieces = new Piece[rows][columns];
     }
 
     public int getRows() {
@@ -20,11 +20,19 @@ public class Board {
         this.rows = rows;
     }
 
-    public int getColums() {
-        return colums;
+    public int getColumns() {
+        return columns;
     }
 
-    public void setColums(int colums) {
-        this.colums = colums;
+    public void setColumns(int colums) {
+        this.columns = colums;
+    }
+    public Piece pieceFromPosition(Position position){
+        return pieces[position.getRow()][position.getColumn()];
+
+    }
+    public Piece pieceFromRowAndColumn(int row, int column){
+        Position position = new Position(row, column);
+        return pieceFromPosition(position);
     }
 }
