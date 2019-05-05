@@ -1,6 +1,8 @@
 package com.zenkurpfy.chess.chess;
 
 import com.zenkurpfy.chess.board.Board;
+import com.zenkurpfy.chess.board.Position;
+import com.zenkurpfy.chess.chess.pieces.Rook;
 
 public class ChessMatch {
 
@@ -8,6 +10,7 @@ public class ChessMatch {
 
     public ChessMatch() {
         this.board = new Board(8,8);
+        initialSetup();
     }
     public ChessPiece[][] getPieces(){
         ChessPiece[][] chessPieces = new ChessPiece[board.getRows()][board.getColumns()];
@@ -17,5 +20,9 @@ public class ChessMatch {
             }
         }
         return chessPieces;
+    }
+    private void initialSetup(){
+        board.placePiece(new Rook(board, Color.BLACK), new Position(2,1));
+        board.placePiece(new Rook(board, Color.BLACK), new Position(2,2));
     }
 }
